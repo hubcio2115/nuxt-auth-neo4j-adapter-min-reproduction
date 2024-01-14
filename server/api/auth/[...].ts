@@ -21,6 +21,21 @@ export const authOptions: AuthConfig = {
   adapter: Neo4jAdapter(neo4jSession),
   trustHost: true,
 
+  callbacks: {
+    jwt({ token, user }) {
+      console.log("token: ", token);
+      console.log("user: ", user);
+
+      return token;
+    },
+
+    session({ session }) {
+      console.log(session);
+
+      return session;
+    },
+  },
+
   providers: [
     Google({
       clientId: env.GOOGLE_CLIENT_ID,
@@ -50,7 +65,6 @@ export const authOptions: AuthConfig = {
         const arePasswordSame = await verify(userPassword, password);
         if (!arePasswordSame) throw new Error("Wrong password.");
 
-        /** @type {import("~/lib/validators/user").User} */
         const user = {
           id: query.records[0]?.get("u.id"),
           name: query.records[0]?.get("u.username"),
