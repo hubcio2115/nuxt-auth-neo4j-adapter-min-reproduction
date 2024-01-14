@@ -8,11 +8,17 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
-    "@auth/core": "^0.17.0",
-    "@hebilicious/authjs-nuxt": "latest"
+    "@auth/core": "^0.20.0",
+    "@auth/neo4j-adapter": "^1.1.2",
+    "@hebilicious/authjs-nuxt": "latest",
+    "@t3-oss/env-nuxt": "^0.7.3",
+    "argon2": "^0.31.2",
+    "neo4j-driver": "^5.16.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^0.8.5",
-    "nuxt": "3.7.4"
+    "@nuxt/devtools": "^1.0.8",
+    "nuxt": "3.9.1",
+    "typescript": "^5.3.3"
   }
 }

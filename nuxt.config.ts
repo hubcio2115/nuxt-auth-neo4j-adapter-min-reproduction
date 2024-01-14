@@ -2,31 +2,36 @@
 export default defineNuxtConfig({
   modules: ["@hebilicious/authjs-nuxt"],
   authJs: {
-    guestRedirectTo: "/redirected"
+    guestRedirectTo: "/redirected",
   },
   nitro: {
     routeRules: {
       "/": { ssr: true, prerender: true },
-      "/private": { ssr: true, prerender: true }
-    }
+      "/private": { ssr: true, prerender: true },
+    },
   },
+
+  alias: {
+    cookie: "cookie",
+  },
+
   devtools: {
-    enabled: true
+    enabled: true,
   },
   experimental: {
-    renderJsonPayloads: true
+    renderJsonPayloads: true,
   },
   runtimeConfig: {
     authJs: { secret: "/OEjlRC2DK74ZEj5nl8qHNy+E6/JptnouIyHnANbBz0=" },
     github: {
       clientId: "",
-      clientSecret: ""
+      clientSecret: "",
     },
     public: {
       authJs: {
         baseUrl: "http://localhost:3000",
-        verifyClientOnEveryRequest: true
-      }
-    }
-  }
-})
+        verifyClientOnEveryRequest: true,
+      },
+    },
+  },
+});
